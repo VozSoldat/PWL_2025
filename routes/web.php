@@ -26,7 +26,7 @@ use App\Http\Controllers\WelcomeController;
 
 Route::get('/hello', [WelcomeController::class, 'hello']);
 
-Route::get('/world', function(){
+Route::get('/world', function () {
     return "World";
 });
 
@@ -40,14 +40,17 @@ Route::get('/articles/{id}', [ArticleController::class, 'show']);
 //     return "Nama saya ". $name;
 // });
 
-Route::get('/posts/{post}/comments/{comment}', function($postId, $commentId){
-    return 'Pos ke-'.$postId.' Komentar ke-' . $commentId;
+Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
+    return 'Pos ke-' . $postId . ' Komentar ke-' . $commentId;
 });
 
 
-Route::get('/user/{name?}', function($name = "John"){
-    return "Nama saya ". $name;
+Route::get('/user/{name?}', function ($name = "John") {
+    return "Nama saya " . $name;
 });
 
 Route::resource('photos', PhotoController::class);
 
+Route::get('/greeting', function () {
+    return view('blog.hello', ['name' => 'Erril']);
+});
